@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Number Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Service Number Converter</h1>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label for="service-number">Original Service Number:</label>
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="service-number" 
+                        placeholder="e.g., 764210-U or U-764210"
+                        autocomplete="off"
+                    >
+                    <button 
+                        type="button" 
+                        class="help-btn" 
+                        id="help-btn"
+                        aria-label="Show help"
+                    >?</button>
+                </div>
+                <div class="tooltip hidden" id="help-tooltip">
+                    <p>Valid formats:</p>
+                    <ul>
+                        <li>XXXXXX-Y (where X = digit, Y = letter)</li>
+                        <li>Y-XXXXXX (where Y = letter, X = digit)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button type="button" id="convert-btn" class="primary-btn">Convert</button>
+            <button type="button" id="clear-btn" class="secondary-btn">Clear</button>
+        </div>
+
+        <div id="error-message" class="error-message hidden">
+            Invalid service number format. Please check and try again.
+        </div>
+
+        <div id="result-section" class="result-section hidden">
+            <h2>Converted Service Number:</h2>
+            <div id="converted-number" class="converted-number"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

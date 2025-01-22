@@ -1,0 +1,182 @@
+/* Base styles */
+:root {
+    --primary-color: #2563eb;
+    --error-color: #dc2626;
+    --success-color: #16a34a;
+    --border-color: #e5e7eb;
+    --text-color: #1f2937;
+    --background-color: #f9fafb;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 28rem;
+}
+
+/* Typography */
+h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0 0 1rem;
+}
+
+/* Input styles */
+.input-section {
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    transition: border-color 0.15s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Button styles */
+.button-group {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+button {
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    flex: 2;
+}
+
+.primary-btn:hover {
+    background-color: #1d4ed8;
+}
+
+.secondary-btn {
+    background-color: #e5e7eb;
+    color: var(--text-color);
+    flex: 1;
+}
+
+.secondary-btn:hover {
+    background-color: #d1d5db;
+}
+
+.help-btn {
+    position: absolute;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+    cursor: help;
+}
+
+/* Tooltip styles */
+.tooltip {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    width: max-content;
+    max-width: 20rem;
+}
+
+.tooltip ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+}
+
+.tooltip p {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Result and error styles */
+.result-section {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f0fdf4;
+    border-radius: 0.375rem;
+}
+
+.converted-number {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--success-color);
+}
+
+.error-message {
+    color: var(--error-color);
+    text-align: center;
+    padding: 0.75rem;
+    background-color: #fef2f2;
+    border-radius: 0.375rem;
+    margin-bottom: 1rem;
+}
+
+/* Utility classes */
+.hidden {
+    display: none;
+}
