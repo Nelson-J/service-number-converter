@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
      * Clears all copied converted code to clipboard
      */
     function copyToClipboard() {
-        const text = convertedNumber.textContent;
+        const text = convertedNumber.textContent.replace(/\s+/g, ''); // Remove spaces;
         navigator.clipboard.writeText(text).then(() => {
             alert('Copied to clipboard');
         }).catch(err => {
