@@ -97,6 +97,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    /**
+     * Parses URL parameters
+     * @returns {Object} - An object containing URL parameters
+     */
+    function getUrlParams() {
+        const params = {};
+        const queryString = window.location.search.substring(1);
+        const regex = /([^&=]+)=([^&]*)/g;
+        let match;
+        while (match = regex.exec(queryString)) {
+            params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+        }
+        return params;
+    }
+
     // Event Listeners
     convertBtn.addEventListener('click', function() {
         const input = serviceNumberInput.value.trim();
@@ -131,6 +146,13 @@ document.addEventListener('DOMContentLoaded', function() {
     helpBtn.addEventListener('mouseleave', () => {
         helpTooltip.classList.add('hidden');
     });
+
+    // Check for URL parameter and auto-convert if present
+    const params = getUrlParams();
+    if (params.serviceNumber) {
+        serviceNumberInput.value = params.serviceNumber;
+        convertBtn.click();
+    }
 
     // Input validation while typing (optional)
     serviceNumberInput.addEventListener('input', function() {
