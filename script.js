@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const errorMessage = document.getElementById('error-message');
     const resultSection = document.getElementById('result-section');
     const convertedNumber = document.getElementById('converted-number');
+    const copyBtn = document.getElementById('copy-btn'); // Copy button
 
     // Constants for validation
     const PATTERNS = {
@@ -84,6 +85,18 @@ document.addEventListener('DOMContentLoaded', function() {
         serviceNumberInput.focus();
     }
 
+    /**
+     * Clears all copied converted code to clipboard
+     */
+    function copyToClipboard() {
+        const text = convertedNumber.textContent;
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Copied to clipboard');
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    }
+
     // Event Listeners
     convertBtn.addEventListener('click', function() {
         const input = serviceNumberInput.value.trim();
@@ -128,4 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
             resultSection.classList.add('hidden');
         }
     });
+    
+    // Copy to clipboard functionality
+    copyBtn.addEventListener('click', copyToClipboard); // Add event listener for copy button
 });
